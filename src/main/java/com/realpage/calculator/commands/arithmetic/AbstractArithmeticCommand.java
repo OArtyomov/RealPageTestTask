@@ -1,6 +1,7 @@
 package com.realpage.calculator.commands.arithmetic;
 
 import com.realpage.calculator.commands.AbstractCommand;
+import com.realpage.calculator.service.CommandRegistry;
 import com.realpage.calculator.service.ExecutionContext;
 import com.realpage.calculator.utils.Consoler;
 
@@ -10,8 +11,8 @@ import static com.realpage.calculator.utils.CollectionUtils.isNotEmpty;
 
 public abstract class AbstractArithmeticCommand extends AbstractCommand {
 
-    public AbstractArithmeticCommand(Consoler consoler) {
-        super(consoler);
+    public AbstractArithmeticCommand(Consoler consoler, CommandRegistry commandRegistry) {
+        super(consoler, commandRegistry);
     }
 
     protected abstract double calculateResult(double a, double b);

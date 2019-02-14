@@ -1,12 +1,13 @@
 package com.realpage.calculator.commands.arithmetic;
 
 import com.realpage.calculator.commands.CommandType;
+import com.realpage.calculator.service.CommandRegistry;
 import com.realpage.calculator.utils.Consoler;
 
 public class MultiplicationCommand extends AbstractArithmeticCommand {
 
-    public MultiplicationCommand(Consoler consoler) {
-        super(consoler);
+    public MultiplicationCommand(Consoler consoler, CommandRegistry commandRegistry) {
+        super(consoler, commandRegistry);
     }
 
     @Override
@@ -19,8 +20,4 @@ public class MultiplicationCommand extends AbstractArithmeticCommand {
         return CommandType.MULTIPLE;
     }
 
-    @Override
-    public boolean isSuitableInputOperator(String operator) {
-        return "*".equals(operator);
-    }
 }

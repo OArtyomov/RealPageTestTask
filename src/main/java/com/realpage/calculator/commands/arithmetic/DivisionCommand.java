@@ -1,6 +1,7 @@
 package com.realpage.calculator.commands.arithmetic;
 
 import com.realpage.calculator.commands.CommandType;
+import com.realpage.calculator.service.CommandRegistry;
 import com.realpage.calculator.service.ExecutionContext;
 import com.realpage.calculator.utils.Consoler;
 
@@ -11,8 +12,8 @@ import static java.math.BigDecimal.ZERO;
 
 public class DivisionCommand extends AbstractArithmeticCommand {
 
-    public DivisionCommand(Consoler consoler) {
-        super(consoler);
+    public DivisionCommand(Consoler consoler, CommandRegistry commandRegistry) {
+        super(consoler, commandRegistry);
     }
 
     @Override
@@ -23,11 +24,6 @@ public class DivisionCommand extends AbstractArithmeticCommand {
     @Override
     public CommandType getCommandType() {
         return CommandType.DEVIDE;
-    }
-
-    @Override
-    public boolean isSuitableInputOperator(String operator) {
-        return "/".equals(operator);
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.realpage.calculator;
 
 
 import com.realpage.calculator.commands.AbstractCommand;
-import com.realpage.calculator.service.CommandFinder;
+import com.realpage.calculator.service.CommandRegistry;
 import com.realpage.calculator.service.ExecutionContext;
 import com.realpage.calculator.utils.Consoler;
 
@@ -15,7 +15,7 @@ public class Application {
 
     private static Consoler consoler = new Consoler();
 
-    private static CommandFinder commandFinder = new CommandFinder(consoler);
+    private static CommandRegistry commandFinder = new CommandRegistry(consoler);
 
     private static ExecutionContext executionContext = new ExecutionContext();
 

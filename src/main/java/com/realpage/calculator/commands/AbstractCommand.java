@@ -1,13 +1,17 @@
 package com.realpage.calculator.commands;
 
+import com.realpage.calculator.service.CommandRegistry;
 import com.realpage.calculator.service.ExecutionContext;
 import com.realpage.calculator.utils.Consoler;
 
 public abstract class AbstractCommand {
     protected final Consoler consoler;
 
-    public AbstractCommand(Consoler consoler) {
+    protected final CommandRegistry commandRegistry;
+
+    public AbstractCommand(Consoler consoler, CommandRegistry commandRegistry) {
         this.consoler = consoler;
+        this.commandRegistry = commandRegistry;
     }
 
     protected abstract void internalExecute(ExecutionContext executionContext);
@@ -24,5 +28,11 @@ public abstract class AbstractCommand {
 
     public abstract CommandType getCommandType();
 
-    public abstract boolean isSuitableInputOperator(String operator);
+    public final String getOperator(){
+        return getCommandType().getOperator();
+    }
+
+    public boolean isSuitableInputOperator(String operator) {
+        return getOperator().equals(operator);
+    }
 }

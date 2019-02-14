@@ -2,14 +2,15 @@ package com.realpage.calculator.commands.arithmetic;
 
 
 import com.realpage.calculator.commands.CommandType;
+import com.realpage.calculator.service.CommandRegistry;
 import com.realpage.calculator.utils.Consoler;
 
 import static com.realpage.calculator.commands.CommandType.ADD;
 
 public class AdditionCommand extends AbstractArithmeticCommand {
 
-    public AdditionCommand(Consoler consoler) {
-        super(consoler);
+    public AdditionCommand(Consoler consoler, CommandRegistry commandRegistry) {
+        super(consoler, commandRegistry);
     }
 
     @Override
@@ -20,10 +21,5 @@ public class AdditionCommand extends AbstractArithmeticCommand {
     @Override
     public CommandType getCommandType() {
         return ADD;
-    }
-
-    @Override
-    public boolean isSuitableInputOperator(String operator) {
-        return "+".equals(operator);
     }
 }
