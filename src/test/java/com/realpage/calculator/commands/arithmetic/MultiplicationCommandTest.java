@@ -54,7 +54,7 @@ public class MultiplicationCommandTest {
         when(executionContext.getNumbers()).thenReturn(Collections.singletonList(2d));
         assertFalse(multiplicationCommand.validDataForExecution(executionContext));
 
-        List items = new ArrayList<>();
+        List<Double> items = new ArrayList<>();
         items.add(1d);
         items.add(2d);
         when(executionContext.getNumbers()).thenReturn(items);
@@ -71,7 +71,7 @@ public class MultiplicationCommandTest {
 
     @Test
     public void testExecute() {
-        List items = new ArrayList<>();
+        List<Double> items = new ArrayList<>();
         items.add(1d);
         items.add(2d);
         items.add(3d);
@@ -79,9 +79,9 @@ public class MultiplicationCommandTest {
         when(executionContext.getNumbers()).thenReturn(items);
         multiplicationCommand.execute(executionContext);
         assertEquals(3, items.size());
-        assertEquals(1d, items.get(0));
-        assertEquals(2d, items.get(1));
-        assertEquals(12d, items.get(2));
+        assertEquals(1d, items.get(0), 0);
+        assertEquals(2d, items.get(1), 0);
+        assertEquals(12d, items.get(2), 0);
         verify(consoler).println(12D);
 
     }

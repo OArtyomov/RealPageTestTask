@@ -55,7 +55,7 @@ public class AdditionCommandTest {
         when(executionContext.getNumbers()).thenReturn(Collections.singletonList(2d));
         assertFalse(additionCommand.validDataForExecution(executionContext));
 
-        List items = new ArrayList<>();
+        List<Double> items = new ArrayList<>();
         items.add(1d);
         items.add(2d);
         when(executionContext.getNumbers()).thenReturn(items);
@@ -72,7 +72,7 @@ public class AdditionCommandTest {
 
     @Test
     public void testExecute() {
-        List items = new ArrayList<>();
+        List<Double> items = new ArrayList<>();
         items.add(1d);
         items.add(2d);
         items.add(3d);
@@ -80,9 +80,9 @@ public class AdditionCommandTest {
         when(executionContext.getNumbers()).thenReturn(items);
         additionCommand.execute(executionContext);
         assertEquals(3, items.size());
-        assertEquals(1d, items.get(0));
-        assertEquals(2d, items.get(1));
-        assertEquals(7d, items.get(2));
+        assertEquals(1d, items.get(0), 0);
+        assertEquals(2d, items.get(1), 0);
+        assertEquals(7d, items.get(2), 0);
         verify(consoler).println(7D);
 
     }

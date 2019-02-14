@@ -55,7 +55,7 @@ public class DivisionCommandTest {
         when(executionContext.getNumbers()).thenReturn(Collections.singletonList(2d));
         assertFalse(divisionCommand.validDataForExecution(executionContext));
 
-        List items = new ArrayList<>();
+        List<Double> items = new ArrayList<>();
         items.add(1d);
         items.add(2d);
         when(executionContext.getNumbers()).thenReturn(items);
@@ -81,7 +81,7 @@ public class DivisionCommandTest {
 
     @Test
     public void testExecute() {
-        List items = new ArrayList<>();
+        List<Double> items = new ArrayList<>();
         items.add(1d);
         items.add(2d);
         items.add(4d);
@@ -89,9 +89,9 @@ public class DivisionCommandTest {
         when(executionContext.getNumbers()).thenReturn(items);
         divisionCommand.execute(executionContext);
         assertEquals(3, items.size());
-        assertEquals(1d, items.get(0));
-        assertEquals(2d, items.get(1));
-        assertEquals(1d, items.get(2));
+        assertEquals(1d, items.get(0), 0);
+        assertEquals(2d, items.get(1), 0);
+        assertEquals(1d, items.get(2), 0);
         verify(consoler).println(1D);
 
     }

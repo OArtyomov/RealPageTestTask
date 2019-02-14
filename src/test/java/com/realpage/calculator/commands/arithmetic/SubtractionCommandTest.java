@@ -55,7 +55,7 @@ public class SubtractionCommandTest {
         when(executionContext.getNumbers()).thenReturn(Collections.singletonList(2d));
         assertFalse(subtractionCommand.validDataForExecution(executionContext));
 
-        List items = new ArrayList<>();
+        List<Double> items = new ArrayList<>();
         items.add(1d);
         items.add(2d);
         when(executionContext.getNumbers()).thenReturn(items);
@@ -72,7 +72,7 @@ public class SubtractionCommandTest {
 
     @Test
     public void testExecute() {
-        List items = new ArrayList<>();
+        List<Double> items = new ArrayList<>();
         items.add(1d);
         items.add(2d);
         items.add(3d);
@@ -80,9 +80,9 @@ public class SubtractionCommandTest {
         when(executionContext.getNumbers()).thenReturn(items);
         subtractionCommand.execute(executionContext);
         assertEquals(3, items.size());
-        assertEquals(1d, items.get(0));
-        assertEquals(2d, items.get(1));
-        assertEquals(-1d, items.get(2));
+        assertEquals(1d, items.get(0), 0);
+        assertEquals(2d, items.get(1), 0);
+        assertEquals(-1d, items.get(2), 0);
         verify(consoler).println(-1D);
 
     }
