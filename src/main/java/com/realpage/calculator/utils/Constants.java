@@ -1,7 +1,7 @@
 package com.realpage.calculator.utils;
 
 
-public class Constants {
+public final class Constants {
     private Constants() {
 
     }
