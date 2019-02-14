@@ -1,7 +1,10 @@
 package com.realpage.calculator.service;
 
 import com.realpage.calculator.commands.AbstractCommand;
-import com.realpage.calculator.commands.AdditionCommand;
+import com.realpage.calculator.commands.arithmetic.AdditionCommand;
+import com.realpage.calculator.commands.arithmetic.DivisionCommand;
+import com.realpage.calculator.commands.arithmetic.MultiplicationCommand;
+import com.realpage.calculator.commands.arithmetic.SubtractionCommand;
 import com.realpage.calculator.commands.common.ExitCommand;
 
 import java.util.ArrayList;
@@ -13,6 +16,9 @@ public class CommandFinder {
     public CommandFinder() {
         possibleCommands.add(new AdditionCommand());
         possibleCommands.add(new ExitCommand());
+        possibleCommands.add(new SubtractionCommand());
+        possibleCommands.add(new MultiplicationCommand());
+        possibleCommands.add(new DivisionCommand());
     }
 
     public AbstractCommand findCommand(String operator) {
