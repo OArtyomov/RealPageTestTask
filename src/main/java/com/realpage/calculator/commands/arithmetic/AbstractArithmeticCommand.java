@@ -5,7 +5,7 @@ import com.realpage.calculator.service.ExecutionContext;
 
 import java.util.List;
 
-import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
+import static com.realpage.calculator.utils.CollectionUtils.isNotEmpty;
 
 public abstract class AbstractArithmeticCommand extends AbstractCommand {
 
