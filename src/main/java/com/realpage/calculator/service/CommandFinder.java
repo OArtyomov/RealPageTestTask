@@ -2,7 +2,7 @@ package com.realpage.calculator.service;
 
 import com.realpage.calculator.commands.AbstractCommand;
 import com.realpage.calculator.commands.AdditionCommand;
-import com.realpage.calculator.commands.ExitCommand;
+import com.realpage.calculator.commands.common.ExitCommand;
 
 import java.util.ArrayList;
 import java.util.List;
