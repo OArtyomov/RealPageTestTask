@@ -2,12 +2,17 @@ package com.realpage.calculator.commands.arithmetic;
 
 import com.realpage.calculator.commands.AbstractCommand;
 import com.realpage.calculator.service.ExecutionContext;
+import com.realpage.calculator.utils.Consoler;
 
 import java.util.List;
 
 import static com.realpage.calculator.utils.CollectionUtils.isNotEmpty;
 
 public abstract class AbstractArithmeticCommand extends AbstractCommand {
+
+    public AbstractArithmeticCommand(Consoler consoler) {
+        super(consoler);
+    }
 
     protected abstract double calculateResult(double a, double b);
 
@@ -20,7 +25,7 @@ public abstract class AbstractArithmeticCommand extends AbstractCommand {
         numbers.remove(numbers.size() - 1);
         numbers.remove(numbers.size() - 1);
         numbers.add(result);
-        System.out.println(result);
+        consoler.println(result);
     }
 
     @Override

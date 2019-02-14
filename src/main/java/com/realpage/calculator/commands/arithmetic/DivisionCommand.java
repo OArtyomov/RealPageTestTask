@@ -2,6 +2,7 @@ package com.realpage.calculator.commands.arithmetic;
 
 import com.realpage.calculator.commands.CommandType;
 import com.realpage.calculator.service.ExecutionContext;
+import com.realpage.calculator.utils.Consoler;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -9,6 +10,11 @@ import java.util.List;
 import static java.math.BigDecimal.ZERO;
 
 public class DivisionCommand extends AbstractArithmeticCommand {
+
+    public DivisionCommand(Consoler consoler) {
+        super(consoler);
+    }
+
     @Override
     protected double calculateResult(double a, double b) {
         return a / b;

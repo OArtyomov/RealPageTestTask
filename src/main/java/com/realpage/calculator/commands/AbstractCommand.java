@@ -1,8 +1,14 @@
 package com.realpage.calculator.commands;
 
 import com.realpage.calculator.service.ExecutionContext;
+import com.realpage.calculator.utils.Consoler;
 
 public abstract class AbstractCommand {
+    protected final Consoler consoler;
+
+    public AbstractCommand(Consoler consoler) {
+        this.consoler = consoler;
+    }
 
     protected abstract void internalExecute(ExecutionContext executionContext);
 
@@ -10,7 +16,7 @@ public abstract class AbstractCommand {
         if (validDataForExecution(executionContext)) {
             internalExecute(executionContext);
         } else {
-            System.out.println("Not enough data for execution or data is invalid");
+            consoler.println("Not enough data for execution or data is invalid");
         }
     }
 

@@ -4,6 +4,7 @@ package com.realpage.calculator;
 import com.realpage.calculator.commands.AbstractCommand;
 import com.realpage.calculator.service.CommandFinder;
 import com.realpage.calculator.service.ExecutionContext;
+import com.realpage.calculator.utils.Consoler;
 
 import java.util.Scanner;
 
@@ -12,13 +13,16 @@ import static java.lang.Double.parseDouble;
 
 public class Application {
 
-    private static CommandFinder commandFinder = new CommandFinder();
+    private static Consoler consoler = new Consoler();
+
+    private static CommandFinder commandFinder = new CommandFinder(consoler);
 
     private static ExecutionContext executionContext = new ExecutionContext();
 
+
     public static void main(String[] args) {
         while (true) {
-            System.out.print(">");
+            consoler.print(">");
             Scanner scanner = new Scanner(System.in);
             String inputValue = scanner.next();
             AbstractCommand command = commandFinder.findCommand(inputValue);
@@ -28,9 +32,9 @@ public class Application {
                 boolean isData = isDouble(inputValue);
                 if (isData) {
                     executionContext.addNumber(parseDouble(inputValue));
-                    System.out.println(inputValue);
+                    consoler.println(inputValue);
                 } else {
-                    System.out.println("Command for execution not found or data is invalid");
+                    consoler.println("Command for execution not found or data is invalid");
                 }
             }
         }

@@ -6,6 +6,7 @@ import com.realpage.calculator.commands.arithmetic.DivisionCommand;
 import com.realpage.calculator.commands.arithmetic.MultiplicationCommand;
 import com.realpage.calculator.commands.arithmetic.SubtractionCommand;
 import com.realpage.calculator.commands.common.ExitCommand;
+import com.realpage.calculator.utils.Consoler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +14,12 @@ import java.util.List;
 public class CommandFinder {
     private List<AbstractCommand> possibleCommands = new ArrayList<>();
 
-    public CommandFinder() {
-        possibleCommands.add(new AdditionCommand());
-        possibleCommands.add(new ExitCommand());
-        possibleCommands.add(new SubtractionCommand());
-        possibleCommands.add(new MultiplicationCommand());
-        possibleCommands.add(new DivisionCommand());
+    public CommandFinder(Consoler consoler) {
+        possibleCommands.add(new AdditionCommand(consoler));
+        possibleCommands.add(new ExitCommand(consoler));
+        possibleCommands.add(new SubtractionCommand(consoler));
+        possibleCommands.add(new MultiplicationCommand(consoler));
+        possibleCommands.add(new DivisionCommand(consoler));
     }
 
     public AbstractCommand findCommand(String operator) {
